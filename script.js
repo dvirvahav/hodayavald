@@ -1,62 +1,64 @@
 /*
- * Premium Hairdresser & Makeup Artist Website - Custom JavaScript
+ * Hodaya Vald - Professional Makeup Artist and Hair Stylist
+ * Website JavaScript Functionality
  */
 
 (function() {
   'use strict';
-
+  
   // Preloader
   window.addEventListener('load', function() {
     const preloader = document.getElementById('preloader');
-    if (preloader) {
+    setTimeout(function() {
+      preloader.style.opacity = '0';
       setTimeout(function() {
-        preloader.style.opacity = '0';
-        setTimeout(function() {
-          preloader.style.display = 'none';
-        }, 500);
-      }, 500);
-    }
+        preloader.style.display = 'none';
+      }, 300);
+    }, 500);
   });
-
-  // Initialize AOS Animation
-  AOS.init({
-    duration: 800,
-    easing: 'ease-in-out',
-    once: true,
-    mirror: false
-  });
-
+  
   // Navbar Scroll Effect
-  const navbar = document.querySelector('.navbar');
   window.addEventListener('scroll', function() {
+    const navbar = document.querySelector('.navbar');
     if (window.scrollY > 50) {
       navbar.classList.add('scrolled');
     } else {
       navbar.classList.remove('scrolled');
     }
   });
-
-  // Smooth Scroll for Anchor Links
+  
+  // Smooth Scrolling for Navigation Links
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function(e) {
       e.preventDefault();
       
-      if (this.getAttribute('href') === '#') return;
+      const targetId = this.getAttribute('href');
+      if (targetId === '#') return;
       
-      const target = document.querySelector(this.getAttribute('href'));
-      if (target) {
+      const targetElement = document.querySelector(targetId);
+      if (targetElement) {
+        const navbarHeight = document.querySelector('.navbar').offsetHeight;
+        const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - navbarHeight;
+        
         window.scrollTo({
-          top: target.offsetTop - 70,
+          top: targetPosition,
           behavior: 'smooth'
         });
+        
+        // Close mobile menu if open
+        const navbarToggler = document.querySelector('.navbar-toggler');
+        const navbarCollapse = document.querySelector('.navbar-collapse');
+        if (navbarCollapse.classList.contains('show')) {
+          navbarToggler.click();
+        }
       }
     });
   });
-
+  
   // Portfolio Filtering
   const filterButtons = document.querySelectorAll('.filter-btn');
   const portfolioItems = document.querySelectorAll('.portfolio-item');
-
+  
   filterButtons.forEach(button => {
     button.addEventListener('click', function() {
       // Remove active class from all buttons
@@ -67,6 +69,7 @@
       
       const filterValue = this.getAttribute('data-filter');
       
+      // Show/hide portfolio items based on filter
       portfolioItems.forEach(item => {
         if (filterValue === 'all' || item.classList.contains(filterValue)) {
           item.style.display = 'block';
@@ -84,7 +87,7 @@
       });
     });
   });
-
+  
   // Back to Top Button
   const backToTopButton = document.querySelector('.back-to-top');
   
@@ -95,7 +98,7 @@
       backToTopButton.classList.remove('active');
     }
   });
-
+  
   backToTopButton.addEventListener('click', function(e) {
     e.preventDefault();
     window.scrollTo({
@@ -103,174 +106,162 @@
       behavior: 'smooth'
     });
   });
-
-  // Form Submission (Prevent default for demo)
-  const forms = document.querySelectorAll('form');
-  forms.forEach(form => {
-    form.addEventListener('submit', function(e) {
+  
+  // Initialize AOS (Animate On Scroll)
+  AOS.init({
+    duration: 800,
+    easing: 'ease-in-out',
+    once: true,
+    mirror: false
+  });
+  
+  // Form Validation and Submission
+  const contactForm = document.querySelector('.contact-form');
+  if (contactForm) {
+    contactForm.addEventListener('submit', function(e) {
       e.preventDefault();
       
-      // Get form elements
-      const formElements = Array.from(this.elements);
+      // Basic form validation
       let isValid = true;
+      const formElements = contactForm.elements;
       
-      // Simple validation
-      formElements.forEach(element => {
-        if (element.hasAttribute('required') && !element.value.trim()) {
+      for (let i = 0; i < formElements.length; i++) {
+        const element = formElements[i];
+        
+        if (element.hasAttribute('required') && element.value.trim() === '') {
           isValid = false;
           element.classList.add('is-invalid');
         } else {
           element.classList.remove('is-invalid');
         }
-      });
+        
+        // Email validation
+        if (element.type === 'email' && element.value.trim() !== '') {
+          const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+          if (!emailRegex.test(element.value.trim())) {
+            isValid = false;
+            element.classList.add('is-invalid');
+          }
+        }
+      }
       
       if (isValid) {
-        // Show success message (in a real site, this would submit to a server)
-        const submitButton = this.querySelector('button[type="submit"]');
-        const originalText = submitButton.textContent;
+        // In a real application, you would send the form data to a server here
+        // For this demo, we'll just show a success message
         
-        submitButton.disabled = true;
-        submitButton.innerHTML = '<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> שולח...';
+        // Create success message
+        const successMessage = document.createElement('div');
+        successMessage.className = 'alert alert-success mt-3';
+        successMessage.textContent = 'תודה על פנייתך! נחזור אליך בהקדם.';
         
+        // Insert success message after form
+        contactForm.insertAdjacentElement('afterend', successMessage);
+        
+        // Reset form
+        contactForm.reset();
+        
+        // Remove success message after 5 seconds
         setTimeout(() => {
-          // Reset form
-          this.reset();
-          
-          // Create success alert
-          const successAlert = document.createElement('div');
-          successAlert.className = 'alert alert-success mt-3';
-          successAlert.textContent = 'ההודעה נשלחה בהצלחה! נחזור אליך בהקדם.';
-          
-          // Insert alert after form
-          this.parentNode.insertBefore(successAlert, this.nextSibling);
-          
-          // Reset button
-          submitButton.disabled = false;
-          submitButton.textContent = originalText;
-          
-          // Remove alert after 5 seconds
-          setTimeout(() => {
-            successAlert.remove();
-          }, 5000);
-        }, 1500);
+          successMessage.remove();
+        }, 5000);
       }
     });
-  });
-
-  // Lightbox Options
-  lightbox.option({
-    'resizeDuration': 200,
-    'wrapAround': true,
-    'albumLabel': "תמונה %1 מתוך %2",
-    'fadeDuration': 300
-  });
-
-  // Add CSS class for Instagram hover effect
-  const instagramItems = document.querySelectorAll('.instagram-item');
-  instagramItems.forEach(item => {
-    item.addEventListener('mouseenter', function() {
-      this.classList.add('instagram-hover');
+    
+    // Remove validation styling on input
+    const formInputs = contactForm.querySelectorAll('input, textarea, select');
+    formInputs.forEach(input => {
+      input.addEventListener('input', function() {
+        if (this.classList.contains('is-invalid')) {
+          this.classList.remove('is-invalid');
+        }
+      });
+    });
+  }
+  
+  // Newsletter Form Submission
+  const newsletterForm = document.querySelector('.footer-newsletter');
+  if (newsletterForm) {
+    newsletterForm.addEventListener('submit', function(e) {
+      e.preventDefault();
+      
+      const emailInput = newsletterForm.querySelector('input[type="email"]');
+      let isValid = true;
+      
+      // Email validation
+      if (emailInput.value.trim() === '') {
+        isValid = false;
+        emailInput.classList.add('is-invalid');
+      } else {
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(emailInput.value.trim())) {
+          isValid = false;
+          emailInput.classList.add('is-invalid');
+        } else {
+          emailInput.classList.remove('is-invalid');
+        }
+      }
+      
+      if (isValid) {
+        // In a real application, you would send the email to a server here
+        // For this demo, we'll just show a success message
+        
+        // Create success message
+        const successMessage = document.createElement('div');
+        successMessage.className = 'alert alert-success mt-3';
+        successMessage.textContent = 'תודה על ההרשמה לניוזלטר!';
+        successMessage.style.backgroundColor = 'rgba(40, 167, 69, 0.2)';
+        successMessage.style.color = '#fff';
+        successMessage.style.padding = '10px';
+        successMessage.style.borderRadius = '5px';
+        
+        // Insert success message after form
+        newsletterForm.insertAdjacentElement('afterend', successMessage);
+        
+        // Reset form
+        newsletterForm.reset();
+        
+        // Remove success message after 5 seconds
+        setTimeout(() => {
+          successMessage.remove();
+        }, 5000);
+      }
     });
     
-    item.addEventListener('mouseleave', function() {
-      this.classList.remove('instagram-hover');
+    // Remove validation styling on input
+    const emailInput = newsletterForm.querySelector('input[type="email"]');
+    emailInput.addEventListener('input', function() {
+      if (this.classList.contains('is-invalid')) {
+        this.classList.remove('is-invalid');
+      }
     });
-  });
-
-  // Add additional styles for back to top button
-  const style = document.createElement('style');
-  style.textContent = `
-    .back-to-top {
-      position: fixed;
-      right: 30px;
-      bottom: 30px;
-      width: 40px;
-      height: 40px;
-      background: var(--primary);
-      color: white;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      z-index: 99;
-      opacity: 0;
-      visibility: hidden;
-      transition: all 0.3s ease-in-out;
-      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    }
+  }
+  
+  // Add active class to current section in navigation
+  function setActiveNavItem() {
+    const sections = document.querySelectorAll('section');
+    const navLinks = document.querySelectorAll('.nav-link');
     
-    .back-to-top.active {
-      opacity: 1;
-      visibility: visible;
-    }
+    let currentSection = '';
     
-    .back-to-top:hover {
-      background: var(--dark);
-      transform: translateY(-3px);
-    }
+    sections.forEach(section => {
+      const sectionTop = section.offsetTop;
+      const sectionHeight = section.clientHeight;
+      const navbarHeight = document.querySelector('.navbar').offsetHeight;
+      
+      if (window.scrollY >= (sectionTop - navbarHeight - 50)) {
+        currentSection = section.getAttribute('id');
+      }
+    });
     
-    #preloader {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: white;
-      z-index: 9999;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      transition: opacity 0.5s ease-in-out;
-    }
-    
-    .instagram-item {
-      display: block;
-      position: relative;
-      overflow: hidden;
-      border-radius: 5px;
-      margin-bottom: 15px;
-    }
-    
-    .instagram-item img {
-      transition: transform 0.5s ease;
-    }
-    
-    .instagram-item:hover img {
-      transform: scale(1.1);
-    }
-    
-    .instagram-item::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(212, 175, 55, 0.7);
-      opacity: 0;
-      transition: opacity 0.3s ease;
-      z-index: 1;
-    }
-    
-    .instagram-item::after {
-      content: '\\f16d';
-      font-family: 'Font Awesome 5 Brands';
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      color: white;
-      font-size: 2rem;
-      opacity: 0;
-      transition: opacity 0.3s ease;
-      z-index: 2;
-    }
-    
-    .instagram-item:hover::before,
-    .instagram-item:hover::after {
-      opacity: 1;
-    }
-  `;
-  document.head.appendChild(style);
-
+    navLinks.forEach(link => {
+      link.classList.remove('active');
+      if (link.getAttribute('href') === `#${currentSection}`) {
+        link.classList.add('active');
+      }
+    });
+  }
+  
+  window.addEventListener('scroll', setActiveNavItem);
+  window.addEventListener('load', setActiveNavItem);
+  
 })();
