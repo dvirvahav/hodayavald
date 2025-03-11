@@ -1,32 +1,69 @@
 <!DOCTYPE html>
-<html lang="he">
+<html lang="he" dir="rtl">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Hodaya Vald - מאפרת מקצועית</title>
+  <title>Hodaya Vald | מאפרת ומעצבת שיער מקצועית</title>
+  
+  <!-- Favicon -->
+  <link rel="icon" href="https://via.placeholder.com/32x32" type="image/png">
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+  
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- Bootstrap CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-  <style>
-    body {
-      direction: rtl;
-      text-align: right;
-    }
-  </style>
+  
+  <!-- AOS Animation -->
+  <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+  
+  <!-- Lightbox CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/css/lightbox.min.css">
+  
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+  <!-- Preloader -->
+  <div id="preloader">
+    <div class="loader">
+      <div class="spinner-border text-gold" role="status">
+        <span class="visually-hidden">טוען...</span>
+      </div>
+    </div>
+  </div>
+
   <!-- Navigation -->
-  <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+  <nav class="navbar navbar-expand-lg navbar-light fixed-top">
     <div class="container">
       <a class="navbar-brand" href="#">Hodaya Vald</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav me-auto">
+        <ul class="navbar-nav ms-auto">
           <li class="nav-item">
             <a class="nav-link" href="#home">דף הבית</a>
           </li>
           <li class="nav-item">
+            <a class="nav-link" href="#about">אודות</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#services">שירותים</a>
+          </li>
+          <li class="nav-item">
             <a class="nav-link" href="#portfolio">תיק עבודות</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#testimonials">המלצות</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#pricing">מחירון</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#contact">צרי קשר</a>
@@ -36,49 +73,473 @@
     </div>
   </nav>
 
-  <!-- Home Section -->
-  <section id="home" class="py-5 text-center" style="margin-top: 70px;">
+  <!-- Hero Section -->
+  <section id="home" class="hero" style="background-image: url('https://images.unsplash.com/photo-1560869713-7d0a29430803?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1920&q=80');">
+    <div class="hero-content">
+      <h1 class="hero-title">Hodaya Vald</h1>
+      <p class="hero-subtitle">מאפרת ומעצבת שיער מקצועית</p>
+      <a href="#contact" class="btn btn-custom hero-btn">קבעי תור עכשיו</a>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about" class="py-5">
     <div class="container">
-      <h1 class="display-4">ברוכה הבאה!</h1>
-      <p class="lead">אני הודיה, מאפרת מקצועית עם ניסיון רב באיפור כלות, איפור ערב וצילומים.</p>
+      <div class="row align-items-center">
+        <div class="col-lg-6" data-aos="fade-left" data-aos-duration="1000">
+          <div class="about-img">
+            <img src="https://images.unsplash.com/photo-1487412947147-5cebf100ffc2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="Hodaya Vald" class="img-fluid rounded">
+          </div>
+        </div>
+        <div class="col-lg-6" data-aos="fade-right" data-aos-duration="1000">
+          <div class="about-content">
+            <h2 class="section-title">אודות</h2>
+            <p>ברוכים הבאים לעולם האיפור והשיער שלי. אני הודיה ולד, מאפרת ומעצבת שיער מקצועית עם ניסיון רב בתחום. אני מתמחה באיפור כלות, איפור ערב, ועיצוב שיער לכל אירוע מיוחד.</p>
+            <p>הגישה שלי משלבת טכניקות מתקדמות עם הבנה עמוקה של מבנה הפנים והשיער, כדי ליצור מראה מושלם המותאם אישית לכל לקוחה. אני מאמינה שכל אישה ראויה להרגיש הכי יפה ובטוחה בעצמה, במיוחד ברגעים המיוחדים בחייה.</p>
+            <p>עם תשומת לב לפרטים הקטנים ושימוש במוצרים איכותיים בלבד, אני מבטיחה תוצאות מושלמות שיחזיקו לאורך כל האירוע.</p>
+            <div class="row mt-4">
+              <div class="col-sm-6">
+                <h5><i class="fas fa-check-circle text-gold me-2"></i> איפור כלות</h5>
+                <h5><i class="fas fa-check-circle text-gold me-2"></i> איפור ערב</h5>
+              </div>
+              <div class="col-sm-6">
+                <h5><i class="fas fa-check-circle text-gold me-2"></i> עיצוב שיער</h5>
+                <h5><i class="fas fa-check-circle text-gold me-2"></i> הדרכות אישיות</h5>
+              </div>
+            </div>
+            <img src="https://via.placeholder.com/200x80?text=Signature" alt="חתימה" class="signature mt-4">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services Section -->
+  <section id="services" class="py-5 bg-light">
+    <div class="container">
+      <h2 class="section-title text-center">השירותים שלי</h2>
+      <div class="row">
+        <div class="col-md-4" data-aos="fade-up" data-aos-duration="800">
+          <div class="service-card text-center">
+            <div class="service-icon">
+              <i class="fas fa-female"></i>
+            </div>
+            <h3 class="service-title">איפור כלות</h3>
+            <p>איפור מושלם ליום החתונה שלך, כולל פגישת ניסיון מקדימה להתאמה מושלמת של המראה הרצוי.</p>
+            <a href="#contact" class="btn btn-outline-custom mt-3">לפרטים נוספים</a>
+          </div>
+        </div>
+        <div class="col-md-4" data-aos="fade-up" data-aos-duration="800" data-aos-delay="200">
+          <div class="service-card text-center">
+            <div class="service-icon">
+              <i class="fas fa-magic"></i>
+            </div>
+            <h3 class="service-title">איפור ערב</h3>
+            <p>איפור מקצועי לכל אירוע מיוחד, מותאם לסגנון האישי שלך ולאופי האירוע.</p>
+            <a href="#contact" class="btn btn-outline-custom mt-3">לפרטים נוספים</a>
+          </div>
+        </div>
+        <div class="col-md-4" data-aos="fade-up" data-aos-duration="800" data-aos-delay="400">
+          <div class="service-card text-center">
+            <div class="service-icon">
+              <i class="fas fa-cut"></i>
+            </div>
+            <h3 class="service-title">עיצוב שיער</h3>
+            <p>עיצוב שיער מקצועי לכלות ולאירועים מיוחדים, כולל תסרוקות מורכבות ועיצובים ייחודיים.</p>
+            <a href="#contact" class="btn btn-outline-custom mt-3">לפרטים נוספים</a>
+          </div>
+        </div>
+        <div class="col-md-4" data-aos="fade-up" data-aos-duration="800">
+          <div class="service-card text-center">
+            <div class="service-icon">
+              <i class="fas fa-graduation-cap"></i>
+            </div>
+            <h3 class="service-title">הדרכות אישיות</h3>
+            <p>הדרכות אישיות באיפור ועיצוב שיער, מותאמות לרמת הידע והצרכים האישיים שלך.</p>
+            <a href="#contact" class="btn btn-outline-custom mt-3">לפרטים נוספים</a>
+          </div>
+        </div>
+        <div class="col-md-4" data-aos="fade-up" data-aos-duration="800" data-aos-delay="200">
+          <div class="service-card text-center">
+            <div class="service-icon">
+              <i class="fas fa-users"></i>
+            </div>
+            <h3 class="service-title">איפור קבוצתי</h3>
+            <p>שירותי איפור לקבוצות, מושלם למסיבות רווקות, אירועים משפחתיים או צילומים קבוצתיים.</p>
+            <a href="#contact" class="btn btn-outline-custom mt-3">לפרטים נוספים</a>
+          </div>
+        </div>
+        <div class="col-md-4" data-aos="fade-up" data-aos-duration="800" data-aos-delay="400">
+          <div class="service-card text-center">
+            <div class="service-icon">
+              <i class="fas fa-camera"></i>
+            </div>
+            <h3 class="service-title">איפור לצילומים</h3>
+            <p>איפור מקצועי לצילומי אופנה, פורטרטים, או כל סוג של צילום מקצועי אחר.</p>
+            <a href="#contact" class="btn btn-outline-custom mt-3">לפרטים נוספים</a>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 
   <!-- Portfolio Section -->
-  <section id="portfolio" class="bg-light py-5 text-center">
+  <section id="portfolio" class="py-5">
     <div class="container">
-      <h2 class="mb-4">תיק עבודות</h2>
-      <div class="row g-4">
-        <div class="col-sm-6 col-md-4">
-          <img src="image1.jpg" class="img-fluid rounded" alt="איפור כלות">
+      <h2 class="section-title text-center">תיק עבודות</h2>
+      <div class="portfolio-filter text-center">
+        <button class="filter-btn active" data-filter="all">הכל</button>
+        <button class="filter-btn" data-filter="bridal">כלות</button>
+        <button class="filter-btn" data-filter="evening">ערב</button>
+        <button class="filter-btn" data-filter="hair">שיער</button>
+      </div>
+      <div class="row portfolio-container">
+        <div class="col-md-4 col-sm-6 portfolio-item bridal" data-aos="zoom-in" data-aos-duration="800">
+          <div class="portfolio-wrapper">
+            <img src="https://images.unsplash.com/photo-1595515106969-1ce29566ff1c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="איפור כלה" class="img-fluid portfolio-img">
+            <div class="portfolio-overlay">
+              <a href="https://images.unsplash.com/photo-1595515106969-1ce29566ff1c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" data-lightbox="portfolio" class="portfolio-icon">
+                <i class="fas fa-search"></i>
+              </a>
+            </div>
+          </div>
         </div>
-        <div class="col-sm-6 col-md-4">
-          <img src="image2.jpg" class="img-fluid rounded" alt="איפור ערב">
+        <div class="col-md-4 col-sm-6 portfolio-item evening" data-aos="zoom-in" data-aos-duration="800" data-aos-delay="200">
+          <div class="portfolio-wrapper">
+            <img src="https://images.unsplash.com/photo-1588516903720-8ceb67f9ef84?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="איפור ערב" class="img-fluid portfolio-img">
+            <div class="portfolio-overlay">
+              <a href="https://images.unsplash.com/photo-1588516903720-8ceb67f9ef84?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" data-lightbox="portfolio" class="portfolio-icon">
+                <i class="fas fa-search"></i>
+              </a>
+            </div>
+          </div>
         </div>
-        <div class="col-sm-6 col-md-4">
-          <img src="image3.jpg" class="img-fluid rounded" alt="איפור צילומים">
+        <div class="col-md-4 col-sm-6 portfolio-item hair" data-aos="zoom-in" data-aos-duration="800" data-aos-delay="400">
+          <div class="portfolio-wrapper">
+            <img src="https://images.unsplash.com/photo-1595476108010-b4d1f102b1b1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="עיצוב שיער" class="img-fluid portfolio-img">
+            <div class="portfolio-overlay">
+              <a href="https://images.unsplash.com/photo-1595476108010-b4d1f102b1b1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" data-lightbox="portfolio" class="portfolio-icon">
+                <i class="fas fa-search"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 col-sm-6 portfolio-item bridal" data-aos="zoom-in" data-aos-duration="800">
+          <div class="portfolio-wrapper">
+            <img src="https://images.unsplash.com/photo-1623930154261-37f8b293c059?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="איפור כלה" class="img-fluid portfolio-img">
+            <div class="portfolio-overlay">
+              <a href="https://images.unsplash.com/photo-1623930154261-37f8b293c059?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" data-lightbox="portfolio" class="portfolio-icon">
+                <i class="fas fa-search"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 col-sm-6 portfolio-item evening" data-aos="zoom-in" data-aos-duration="800" data-aos-delay="200">
+          <div class="portfolio-wrapper">
+            <img src="https://images.unsplash.com/photo-1526045478516-99145907023c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="איפור ערב" class="img-fluid portfolio-img">
+            <div class="portfolio-overlay">
+              <a href="https://images.unsplash.com/photo-1526045478516-99145907023c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" data-lightbox="portfolio" class="portfolio-icon">
+                <i class="fas fa-search"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 col-sm-6 portfolio-item hair" data-aos="zoom-in" data-aos-duration="800" data-aos-delay="400">
+          <div class="portfolio-wrapper">
+            <img src="https://images.unsplash.com/photo-1605980776566-0486c3ac7617?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="עיצוב שיער" class="img-fluid portfolio-img">
+            <div class="portfolio-overlay">
+              <a href="https://images.unsplash.com/photo-1605980776566-0486c3ac7617?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" data-lightbox="portfolio" class="portfolio-icon">
+                <i class="fas fa-search"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials Section -->
+  <section id="testimonials" class="py-5 bg-light">
+    <div class="container">
+      <h2 class="section-title text-center">המלצות</h2>
+      <div class="row testimonial-slider">
+        <div class="col-md-6" data-aos="fade-up" data-aos-duration="800">
+          <div class="testimonial-item text-center">
+            <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=150&q=80" alt="לקוחה מרוצה" class="testimonial-img">
+            <h4 class="testimonial-name">שירה לוי</h4>
+            <p class="testimonial-position">כלה</p>
+            <p class="testimonial-text">"הודיה היא מאפרת מדהימה! היא הבינה בדיוק את הסגנון שרציתי והתוצאה הייתה מושלמת. האיפור החזיק מעמד לאורך כל היום והלילה, וקיבלתי המון מחמאות. ממליצה בחום!"</p>
+            <div class="testimonial-rating">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6" data-aos="fade-up" data-aos-duration="800" data-aos-delay="200">
+          <div class="testimonial-item text-center">
+            <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=150&q=80" alt="לקוחה מרוצה" class="testimonial-img">
+            <h4 class="testimonial-name">מיכל כהן</h4>
+            <p class="testimonial-position">אירוע ערב</p>
+            <p class="testimonial-text">"הודיה היא אמנית אמיתית! היא יצרה לי מראה מושלם לאירוע חשוב, והרגשתי מדהים. היא מקצועית, נעימה ומוכשרת מאוד. בהחלט אפנה אליה שוב בעתיד!"</p>
+            <div class="testimonial-rating">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6" data-aos="fade-up" data-aos-duration="800">
+          <div class="testimonial-item text-center">
+            <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=150&q=80" alt="לקוחה מרוצה" class="testimonial-img">
+            <h4 class="testimonial-name">רונית אברהם</h4>
+            <p class="testimonial-position">צילומים</p>
+            <p class="testimonial-text">"עבדתי עם הודיה על מספר פרויקטים של צילומים, והתוצאות תמיד מדהימות. היא מבינה בדיוק את הלוק שאני מחפשת ויודעת להתאים את האיפור לקונספט. מקצועית ומוכשרת מאוד!"</p>
+            <div class="testimonial-rating">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pricing Section -->
+  <section id="pricing" class="py-5">
+    <div class="container">
+      <h2 class="section-title text-center">מחירון</h2>
+      <div class="row">
+        <div class="col-md-4" data-aos="fade-up" data-aos-duration="800">
+          <div class="pricing-card text-center">
+            <h3 class="pricing-title">איפור ערב</h3>
+            <div class="pricing-price">₪350</div>
+            <div class="pricing-features">
+              <p class="pricing-feature">איפור מקצועי מלא</p>
+              <p class="pricing-feature">שימוש במוצרים איכותיים</p>
+              <p class="pricing-feature">התאמה אישית לאירוע</p>
+              <p class="pricing-feature">ייעוץ סגנון</p>
+            </div>
+            <a href="#contact" class="btn btn-outline-custom pricing-btn">הזמיני עכשיו</a>
+          </div>
+        </div>
+        <div class="col-md-4" data-aos="fade-up" data-aos-duration="800" data-aos-delay="200">
+          <div class="pricing-card featured text-center">
+            <div class="pricing-header">
+              <h3 class="pricing-title">חבילת כלה</h3>
+            </div>
+            <div class="pricing-price">₪1,200</div>
+            <div class="pricing-features">
+              <p class="pricing-feature">פגישת ניסיון</p>
+              <p class="pricing-feature">איפור ביום החתונה</p>
+              <p class="pricing-feature">עיצוב שיער</p>
+              <p class="pricing-feature">טיפול בגבות</p>
+              <p class="pricing-feature">ריסים מלאכותיות</p>
+              <p class="pricing-feature">ליווי עד החופה (בתוספת תשלום)</p>
+            </div>
+            <a href="#contact" class="btn btn-custom pricing-btn">הזמיני עכשיו</a>
+          </div>
+        </div>
+        <div class="col-md-4" data-aos="fade-up" data-aos-duration="800" data-aos-delay="400">
+          <div class="pricing-card text-center">
+            <h3 class="pricing-title">הדרכת איפור אישית</h3>
+            <div class="pricing-price">₪500</div>
+            <div class="pricing-features">
+              <p class="pricing-feature">הדרכה אישית של שעתיים</p>
+              <p class="pricing-feature">טכניקות מקצועיות</p>
+              <p class="pricing-feature">התאמת מוצרים אישית</p>
+              <p class="pricing-feature">חוברת טיפים והמלצות</p>
+            </div>
+            <a href="#contact" class="btn btn-outline-custom pricing-btn">הזמיני עכשיו</a>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
   <!-- Contact Section -->
-  <section id="contact" class="py-5 text-center">
+  <section id="contact" class="py-5 bg-light">
     <div class="container">
-      <h2 class="mb-4">צרי קשר</h2>
-      <p>📞 <a href="tel:0501234567" class="text-decoration-none">050-123-4567</a></p>
-      <p>📧 <a href="mailto:hodaya@example.com" class="text-decoration-none">hodaya@example.com</a></p>
-      <p>📱 <a href="https://wa.me/0501234567" class="text-decoration-none" target="_blank">וואטסאפ</a></p>
-      <p>📷 <a href="https://instagram.com/hodaya" class="text-decoration-none" target="_blank">אינסטגרם</a></p>
-      <p>📘 <a href="https://facebook.com/hodaya" class="text-decoration-none" target="_blank">פייסבוק</a></p>
+      <h2 class="section-title text-center">צרי קשר</h2>
+      <div class="row">
+        <div class="col-lg-4" data-aos="fade-left" data-aos-duration="800">
+          <div class="contact-info">
+            <div class="contact-item">
+              <div class="contact-icon">
+                <i class="fas fa-map-marker-alt"></i>
+              </div>
+              <div class="contact-text">
+                <h5>כתובת</h5>
+                <p>רחוב הרצל 123, תל אביב</p>
+              </div>
+            </div>
+            <div class="contact-item">
+              <div class="contact-icon">
+                <i class="fas fa-phone"></i>
+              </div>
+              <div class="contact-text">
+                <h5>טלפון</h5>
+                <p><a href="tel:0501234567" class="text-decoration-none">050-123-4567</a></p>
+              </div>
+            </div>
+            <div class="contact-item">
+              <div class="contact-icon">
+                <i class="fas fa-envelope"></i>
+              </div>
+              <div class="contact-text">
+                <h5>אימייל</h5>
+                <p><a href="mailto:hodaya@example.com" class="text-decoration-none">hodaya@example.com</a></p>
+              </div>
+            </div>
+            <div class="contact-item">
+              <div class="contact-icon">
+                <i class="fas fa-clock"></i>
+              </div>
+              <div class="contact-text">
+                <h5>שעות פעילות</h5>
+                <p>ראשון - חמישי: 9:00 - 19:00</p>
+                <p>שישי: 9:00 - 14:00</p>
+              </div>
+            </div>
+            <div class="social-links">
+              <a href="https://instagram.com/hodaya" class="social-link" target="_blank"><i class="fab fa-instagram"></i></a>
+              <a href="https://facebook.com/hodaya" class="social-link" target="_blank"><i class="fab fa-facebook-f"></i></a>
+              <a href="https://wa.me/0501234567" class="social-link" target="_blank"><i class="fab fa-whatsapp"></i></a>
+              <a href="https://tiktok.com/@hodaya" class="social-link" target="_blank"><i class="fab fa-tiktok"></i></a>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-8" data-aos="fade-right" data-aos-duration="800">
+          <form class="contact-form">
+            <div class="row">
+              <div class="col-md-6">
+                <input type="text" class="form-control" placeholder="שם מלא *" required>
+              </div>
+              <div class="col-md-6">
+                <input type="email" class="form-control" placeholder="אימייל *" required>
+              </div>
+              <div class="col-md-6">
+                <input type="tel" class="form-control" placeholder="טלפון *" required>
+              </div>
+              <div class="col-md-6">
+                <select class="form-control">
+                  <option selected disabled>בחרי שירות</option>
+                  <option>איפור כלה</option>
+                  <option>איפור ערב</option>
+                  <option>עיצוב שיער</option>
+                  <option>הדרכת איפור</option>
+                  <option>איפור קבוצתי</option>
+                  <option>איפור לצילומים</option>
+                </select>
+              </div>
+              <div class="col-12">
+                <textarea class="form-control" placeholder="הודעה *" required></textarea>
+              </div>
+              <div class="col-12 text-center mt-4">
+                <button type="submit" class="btn btn-custom">שליחה</button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Instagram Feed Section -->
+  <section class="py-5">
+    <div class="container">
+      <h2 class="section-title text-center">עקבו אחריי באינסטגרם</h2>
+      <div class="row g-2">
+        <div class="col-lg-3 col-md-4 col-6" data-aos="fade-up" data-aos-duration="800">
+          <a href="https://instagram.com/hodaya" target="_blank" class="instagram-item">
+            <img src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=400&q=80" alt="Instagram Post" class="img-fluid">
+          </a>
+        </div>
+        <div class="col-lg-3 col-md-4 col-6" data-aos="fade-up" data-aos-duration="800" data-aos-delay="100">
+          <a href="https://instagram.com/hodaya" target="_blank" class="instagram-item">
+            <img src="https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=400&q=80" alt="Instagram Post" class="img-fluid">
+          </a>
+        </div>
+        <div class="col-lg-3 col-md-4 col-6" data-aos="fade-up" data-aos-duration="800" data-aos-delay="200">
+          <a href="https://instagram.com/hodaya" target="_blank" class="instagram-item">
+            <img src="https://images.unsplash.com/photo-1526047932273-341f2a7631f9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=400&q=80" alt="Instagram Post" class="img-fluid">
+          </a>
+        </div>
+        <div class="col-lg-3 col-md-4 col-6" data-aos="fade-up" data-aos-duration="800" data-aos-delay="300">
+          <a href="https://instagram.com/hodaya" target="_blank" class="instagram-item">
+            <img src="https://images.unsplash.com/photo-1571646034647-52e6ea84b28c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=400&q=80" alt="Instagram Post" class="img-fluid">
+          </a>
+        </div>
+      </div>
     </div>
   </section>
 
   <!-- Footer -->
-  <footer class="bg-dark text-white text-center py-3">
-    <p>&copy; 2025 Hodaya Vald - כל הזכויות שמורות</p>
+  <footer class="footer">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-4">
+          <a href="#" class="footer-logo">Hodaya Vald</a>
+          <p class="footer-text">מאפרת ומעצבת שיער מקצועית המתמחה באיפור כלות, איפור ערב, ועיצוב שיער לכל אירוע מיוחד.</p>
+          <div class="footer-social">
+            <a href="https://instagram.com/hodaya" target="_blank"><i class="fab fa-instagram"></i></a>
+            <a href="https://facebook.com/hodaya" target="_blank"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://wa.me/0501234567" target="_blank"><i class="fab fa-whatsapp"></i></a>
+            <a href="https://tiktok.com/@hodaya" target="_blank"><i class="fab fa-tiktok"></i></a>
+          </div>
+        </div>
+        <div class="col-lg-4">
+          <h4 class="footer-title">קישורים מהירים</h4>
+          <ul class="footer-links">
+            <li><a href="#home">דף הבית</a></li>
+            <li><a href="#about">אודות</a></li>
+            <li><a href="#services">שירותים</a></li>
+            <li><a href="#portfolio">תיק עבודות</a></li>
+            <li><a href="#testimonials">המלצות</a></li>
+            <li><a href="#pricing">מחירון</a></li>
+            <li><a href="#contact">צרי קשר</a></li>
+          </ul>
+        </div>
+        <div class="col-lg-4">
+          <h4 class="footer-title">הרשמה לעדכונים</h4>
+          <p class="footer-text">הירשמי לניוזלטר שלי לקבלת עדכונים, טיפים והטבות מיוחדות.</p>
+          <form class="footer-newsletter">
+            <div class="input-group">
+              <input type="email" class="form-control" placeholder="האימייל שלך" required>
+              <button class="btn btn-custom" type="submit">הרשמה</button>
+            </div>
+          </form>
+        </div>
+      </div>
+      <div class="text-center copyright">
+        <p>&copy; 2025 Hodaya Vald - כל הזכויות שמורות</p>
+      </div>
+    </div>
   </footer>
 
+  <!-- Back to Top Button -->
+  <a href="#" class="back-to-top"><i class="fas fa-chevron-up"></i></a>
+
+  <!-- Bootstrap JS -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  
+  <!-- jQuery -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  
+  <!-- AOS Animation -->
+  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+  
+  <!-- Lightbox JS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/js/lightbox.min.js"></script>
+  
+  <!-- Custom JS -->
+  <script src="script.js"></script>
 </body>
 </html>
